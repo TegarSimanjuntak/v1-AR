@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+   <title>Informasi Anotasi</title>
+   <style>
+     body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        color: #333;
+     }
+
+     header {
+        background-color: #0066cc;
+        color: white;
+        padding: 20px;
+        text-align: center;
+     }
+
+     h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        font-weight: bold;
+     }
+
+     h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+        color: #0066cc;
+     }
+
+     .content-box {
+        padding: 20px;
+        font-size: 18px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        width: 80%;
+        max-width: 900px;
+     }
+
+     .content-box p {
+        line-height: 1.6;
+        margin-bottom: 15px;
+     }
+
+     .content-box ul {
+        margin-left: 20px;
+     }
+
+     a {
+        color: #0066cc;
+        text-decoration: none;
+        font-size: 18px;
+     }
+
+     a:hover {
+        text-decoration: underline;
+     }
+
+     @media screen and (max-width: 768px) {
+        .content-box {
+           width: 90%;
+        }
+     }
+   </style>
+
+   <script>
+     // Fungsi untuk mendapatkan parameter dari URL
+     function getQueryParam(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+     }
+
+     // Menampilkan konten berdasarkan anotasi yang diklik
+     function loadContent() {
+        const annotationId = getQueryParam('annotation');
+
+        const content = [
+          {
+            title: "Informasi tentang Filosofi",
+            text: `Tugu Makalangan merupakan tugu yang berada di gerbang lama universitas dan sudah diresmikan sejak 4 Oktober 2024. 
+                  Makalangan sendiri diambil dari bahasa Sunda dan memiliki arti “siap untuk bertanding.” Tugu Makalangan memiliki 3 bangunan yang mirip seperti obor, mengapa demikian?
+                  Karena, dibalik bentuk tersebut ternyata Ibu Rina memiliki tujuan yaitu, mencerminkan tekad sivitas akademika Unpad untuk terus berjuang dan pantang menyerah dalam meraih masa depan yang cerah.`
+          },
+          {
+            title: "Informasi tentang Masalah Pembangunan",
+            text: `Selama masa pembangunannya, Tugu Makalangan yang dibangun di Gerbang D Universitas Padjadjaran atau lebih dikenal sebagai Gerbang lama (Gerlam) menuai berbagai pro dan kontra. 
+                   Salah satu permasalahan utama yang timbul adalah perubahan tata letak fasilitas kampus dan alur lalu lintas. 
+                   Selain itu, kegiatan perkuliahan di beberapa fakultas sempat terganggu karena terputusnya arus listrik di lingkungan kampus beberapa waktu lalu.`
+          },
+          {
+            title: "Informasi tentang Pendanaan",
+            text: "Pendanaan terkait pembangunan Tugu Makalangan, serta alokasi anggaran yang digunakan, belum tersedia secara detail. Kami akan mengupdate informasi lebih lanjut."
+          },
+          {
+            title: "Informasi tentang Kontroversi Tugu Makalangan Unpad",
+            text: `Pembangunan Tugu Makalangan di Universitas Padjadjaran (Unpad) telah memicu pro dan kontra di kalangan civitas akademika dan publik. Kritik utama menyebut bahwa tugu ini dibangun hanya untuk tujuan estetika tanpa memberikan manfaat langsung bagi mahasiswa atau dosen.
+                   Beberapa pihak menduga bahwa pembangunan tugu ini merupakan salah satu langkah simbolis untuk meninggalkan 'jejak terakhir' dari kepemimpinan Prof. Dr. Rina Indiastuti, S.E., M.S.I.E. menjelang akhir masa jabatannya sebagai Rektor Unpad.`
+          }
+        ];
+
+        const contentBox = document.getElementById('content-box');
+
+        if (annotationId && annotationId >= 1 && annotationId <= 4) {
+          const annotationContent = content[annotationId - 1];
+          contentBox.innerHTML = `
+            <h1>${annotationContent.title}</h1>
+            <p>${annotationContent.text}</p>
+          `;
+        } else {
+          contentBox.innerHTML = "<p>Konten tidak ditemukan.</p>";
+        }
+     }
+
+     window.onload = loadContent;
+   </script>
+</head>
+<body>
+   <header>
+      <h1>Pusat Informasi</h1>
+   </header>
+
+   <div id="content-box" class="content-box">
+      <!-- Konten akan dimuat di sini -->
+   </div>
+
+   <div style="text-align: center; margin-top: 20px;">
+      <a href="end.html">Kembali ke halaman utama</a>
+   </div>
+</body>
+</html>

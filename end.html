@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+   <title>Kotak Web AR Example Without Marker</title>
+   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <a-scene embedded arjs="sourceType: webcam;">
+      <a-entity id="model" gltf-model="tugu.gltf" scale="0.4 0.4 0.4" position="0 -1.2 -7" rotation="0 0 0"></a-entity>
+      <a-entity id="camera" camera="zoom: 1; fov: 60;"></a-entity>
+   </a-scene>
+
+    <!-- Anotasi -->
+    <div id="annotation-1" class="annotation"></div>
+    <div id="annotation-2" class="annotation"></div>
+    <div id="annotation-3" class="annotation"></div>
+    <div id="annotation-4" class="annotation"></div>
+    
+   <div class="info-box" id="info-box">Ini adalah informasi tentang Tugu 3D.
+      <a href ="information.html">Selengkapnya</href>
+   </div>
+   <script src="script.js"></script>
+
+</body>
+</html>

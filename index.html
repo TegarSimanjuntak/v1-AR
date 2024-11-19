@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Web AR Example with Custom Marker</title>
+   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
+   <style>
+      body, html, a-scene {
+         margin: 0;
+         padding: 0;
+         height: 100%;
+         width: 100%;
+         overflow: hidden;
+      }
+      #button {
+         position: absolute;
+         bottom: 400px;
+         right: 20px;
+         padding: 10px 20px;
+         background-color: #007bff;
+         color: white;
+         border: none;
+         border-radius: 5px;
+         display: none;
+         cursor: pointer;
+         font-size: 16px;
+      }
+   </style>
+</head>
+<body>
+   <a-scene embedded arjs="sourceType: webcam; fitToScreen: true; debugUIEnabled: false;">
+      <a-marker type="pattern" url="big.patt" id="my-marker">
+         <a-entity id="model" gltf-model="tugu.gltf" scale="0.3 0.3 0.3" position="0 0 0"></a-entity>
+      </a-marker>
+      <a-entity camera arjs></a-entity>
+   </a-scene>
+   <button id="button" onclick="handleButtonClick()">Kunci</button>
+   <script>
+      const button = document.getElementById("button");
+      const marker = document.getElementById("my-marker");
+
+      marker.addEventListener('markerFound', function() {
+         button.style.display = 'block';
+      });
+
+      marker.addEventListener('markerLost', function() {
+         button.style.display = 'none';
+      });
+
+      function handleButtonClick() {
+         window.location.href = 'end.html';
+      }
+   </script>
+</body>
+</html>

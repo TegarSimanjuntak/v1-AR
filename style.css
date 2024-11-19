@@ -1,0 +1,50 @@
+body {
+   margin: 0;
+   overflow: hidden;
+}
+
+.info-box {
+   position: absolute;
+   bottom: 100px;
+   left: 50%;
+   transform: translateX(-50%);
+   padding: 10px;
+   background: rgba(255, 255, 255, 0.9);
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   display: none;
+   z-index: 10;
+   max-width: 80%;
+   font-size: 14px;
+}
+
+.annotation:hover {
+   background-color: rgba(255, 255, 255, 1);
+   transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.annotation {
+   width: 20px;
+   height: 20px;
+   background: rgba(255, 0, 0, 0.8);
+   cursor: pointer;
+   position: absolute;
+   z-index: 999;
+   border-radius: 50%;
+   display: none;
+   transition: transform 0.2s ease; /* Smooth scaling */
+}
+
+#button {
+   position: absolute;
+   bottom: 400px;
+   right: 20px;
+   padding: 10px 20px;
+   background-color: #007bff;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   display: none;
+   cursor: pointer;
+   font-size: 16px;
+}
